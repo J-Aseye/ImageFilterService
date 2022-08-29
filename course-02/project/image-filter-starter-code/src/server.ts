@@ -15,9 +15,6 @@ import {RSA_NO_PADDING} from 'constants'
   
   // Use the body parser middleware for post requests
   
-      
-    });
-
   // @TODO1 IMPLEMENT A RESTFUL ENDPOINT
 
   // GET /filteredimage?image_url={{URL}}
