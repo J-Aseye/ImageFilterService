@@ -14,20 +14,7 @@ import {RSA_NO_PADDING} from 'constants'
   const port = process.env.PORT || 8082;
   
   // Use the body parser middleware for post requests
-  app.use(bodyParser.json());
   
-  app.get("/filteredimage", async (req: Request , res: Response) => {
-    let image_url = req.query.image_url as string
-    if(!image_url)
-      {
-        console.log(image_url)
-      return res.status(400).send('There is a problem with the image url');
-      }
-        const image_file = await filterImageFromURL(image_url);
-        res.sendFile(image_file, () =>
-        {
-          deleteLocalFiles([image_file]);
-        });
       
     });
 
