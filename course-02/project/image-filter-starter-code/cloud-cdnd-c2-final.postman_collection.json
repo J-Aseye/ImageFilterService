@@ -12,7 +12,7 @@
 				"header": [],
 				"url": {
 					"raw": "http://{{HOST}}/filteredimage?image_url=https://images.pexels.com/photos/296282/pexels-photo-296282.jpeg?auto=compress%26cs=tinysrgb%26h=350",
-					"protocol": "https",
+					"protocol": "http",
 					"host": [
 						"{{HOST}}"
 					],
