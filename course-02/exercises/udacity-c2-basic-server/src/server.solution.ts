@@ -101,7 +101,7 @@ import { Car, cars as cars_list } from './cars';
     }
 
     // try to find the car by id
-    const car = cars.filter((car) => car.id == id);
+    const car = cars.filter((car) => car.id === +id);
 
     // respond not found, if we do not have this id
     if(car && car.length === 0) {
@@ -111,6 +111,7 @@ import { Car, cars as cars_list } from './cars';
     //return the car with a sucess status code
     res.status(200).send(car);
   } );
+
   
   /// @TODO Add an endpoint to post a new car to our list
   // it should require id, type, model, and cost
@@ -127,9 +128,11 @@ import { Car, cars as cars_list } from './cars';
     }
 
     // create a new car instance
+    
     const new_car: Car = {
       make: make, type: type, model:model, cost:cost, id:id
     };
+
 
     // add this car to our local variable
     cars.push(new_car);

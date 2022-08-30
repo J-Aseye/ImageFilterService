@@ -1,10 +1,10 @@
 import express, { Router, Request, Response } from 'express';
 import bodyParser from 'body-parser';
 
-import { Car, cars as cars_list } from './cars';
+import { Car, cars as allcars } from './cars';
 
 (async () => {
-  let cars:Car[]  = cars_list;
+  let cars:Car[]  = allcars;
 
   //Create an express application
   const app = express(); 
@@ -18,6 +18,11 @@ import { Car, cars as cars_list } from './cars';
   // Root URI call
   app.get( "/", ( req: Request, res: Response ) => {
     res.status(200).send("Welcome to the Cloud!");
+  } );
+
+
+  app.get( "/Me", ( req: Request, res: Response ) => {
+    res.status(200).send("Cars are in the show room!");
   } );
 
   // Get a greeting to a specific person 
@@ -38,17 +43,17 @@ import { Car, cars as cars_list } from './cars';
 
   // Get a greeting to a specific person to demonstrate req.query
   // > try it {{host}}/persons?name=the_name
-  app.get( "/persons/", ( req: Request, res: Response ) => {
-    let { name } = req.query;
+  //app.get( "/cars/", ( req: Request, res: Response ) => {
+    //let { car } = req.query;
 
-    if ( !name ) {
-      return res.status(400)
-                .send(`name is required`);
-    }
+    //if ( !car ) {
+     // return res.status(400)
+               // .send(`No cars found`);
+   // }
 
-    return res.status(200)
-              .send(`Welcome to the Cloud, ${name}!`);
-  } );
+   // return res.status(200)
+             // .send(`See all your, ${car}!`);
+  //} );
 
   // Post a greeting to a specific person
   // to demonstrate req.body
@@ -70,6 +75,16 @@ import { Car, cars as cars_list } from './cars';
 
   // @TODO Add an endpoint to GET a list of cars
   // it should be filterable by make with a query paramater
+
+  app.get( "/cars/", ( req: Request, res: Response ) => {
+    let { make } = req.query;
+    let cars_list = allcars;
+
+    if (make) {
+      cars_list = allcars.filter((car) => car.make === make);
+    }
+    res.status(200).send(cars_list);
+  });
 
   // @TODO Add an endpoint to get a specific car
   // it should require id
