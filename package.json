@@ -1,0 +1,19 @@
+{
+  "name": "package",
+  "version": "2.0.0",
+  "description": "cloud-developer-sample-node-ex",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm i"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/J-Aseye/cloud-developer-sample-node-ex.git"
+  },
+  "author": "Joyce",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/J-Aseye/cloud-developer-sample-node-ex/issues"
+  },
+  "homepage": "https://github.com/J-Aseye/cloud-developer-sample-node-ex#readme"
+}
